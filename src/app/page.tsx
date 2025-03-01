@@ -1,101 +1,147 @@
-import Image from "next/image";
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const btnClasses = 'btn btn-sm btn-primary';
+  const h2Classes = 'text-lg italic';
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <>
+      <h1 className='text-5xl font-bold'>EJEMPLOS</h1>
+      <Link
+        className={`${btnClasses}`}
+        href='/how-it-works'
+      >
+        Cómo funciona useRef?
+      </Link>
+      <div className='divider' />
+      <h2 className={`${h2Classes}`}>
+        Forma 1: Usarlo sin vincularlo a un elemento del DOM
+      </h2>
+      <div className='flex flex-row flex-wrap gap-2 justify-center items-center'>
+        <fieldset className='flex flex-row flex-wrap gap-2 justify-center items-center border border-primary p-2'>
+          <legend>Casos básicos</legend>
+          <Link
+            className={`${btnClasses}`}
+            href='/how-it-works'
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            1. Conservar valor entre re-renders
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/run-on-every-re-render-except-first'
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            2. Ejecutar algo excepto en el primer render
+          </Link>
+        </fieldset>
+        <fieldset className='flex flex-row flex-wrap gap-2 justify-center items-center border border-primary p-2'>
+          <legend>Valores previos</legend>
+          <Link
+            className={`${btnClasses}`}
+            href='/history-of-changes'
+          >
+            3. Historial de cambios
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/scroll-direction-indicator'
+          >
+            4. Identificar dirección de scroll
+          </Link>
+        </fieldset>
+        <fieldset className='flex flex-row flex-wrap gap-2 justify-center items-center border border-primary p-2'>
+          <legend>Con tiempo</legend>
+          <Link
+            className={`${btnClasses}`}
+            href='/chronometer'
+          >
+            5. Cronómetro
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/typing-indicator'
+          >
+            6. Identificar cuando alguien está escribiendo
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/auto-saving'
+          >
+            7. Auto-saving
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/detecting-inactivity'
+          >
+            8. Detectar inactividad
+          </Link>
+          <Link
+            className={`${btnClasses}`}
+            href='/temporal-notification'
+          >
+            9. Notificación temporal
+          </Link>
+        </fieldset>
+      </div>
+      <div className='divider' />
+      <h2 className={`${h2Classes}`}>
+        Forma 2: Usarlo vinculándolo a un elemento del DOM
+      </h2>
+      <div className='flex flex-row flex-wrap gap-2 justify-center items-center mb-[250px]'>
+        <Link
+          className={`${btnClasses}`}
+          href='/cursor-trail'
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          10. Cursor con rastro
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/html-canvas'
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          10. HTML Canvas
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/control-playback'
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          11. Controlar playback
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/focus-on-mount'
+        >
+          12. Enfocar elemento on-mount
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/measure-element'
+        >
+          13. Obtener dimensiones de elemento
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/imperative-animations'
+        >
+          14. Animaciones imperativas
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/prevent-fixed-element-overlapping'
+        >
+          15. Prevenir que un elemento fijo tape otros elementos de la pantalla
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/form-without-state'
+        >
+          16. Formulario sin estado
+        </Link>
+        <Link
+          className={`${btnClasses}`}
+          href='/integrate-with-third-libs'
+        >
+          17. Integración con librerías de terceros
+        </Link>
+      </div>
+    </>
   );
 }
